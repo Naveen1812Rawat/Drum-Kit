@@ -3,13 +3,15 @@ for(var i=0; i<document.querySelectorAll(".drum").length; i++)
 {
     document.querySelectorAll(".drum")[i].addEventListener("click", function() {
         this.style.color = "green";
-        makeSound(this.innerHTML);        
+        makeSound(this.innerHTML);  
+        buttonAnimation(this.innerHTML);      
     });
 }
 
 //Detecting Key Press
 document.addEventListener("keypress", function(event){
     makeSound(event.key);
+    buttonAnimation(event.key);
 })
 
 //Function for Producing Sound
@@ -46,4 +48,13 @@ function makeSound(value)
                     audio.play();  
                     break;
         }
+}
+
+function buttonAnimation(currentKey)
+{
+    var activeButton = document.querySelector("."+currentKey);
+    activeButton.classList.add("pressed");
+    setTimeout(function(){
+        activeButton.classList.remove("pressed");
+    }, 10);
 }
