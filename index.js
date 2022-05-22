@@ -18,7 +18,7 @@ function makeSound(value)
     switch(value)
             {
                 case 'w': 
-                    var audio = new Audio("./sounds/Prajwal.mp3");
+                    var audio = new Audio("./sounds/tom-1.mp3");
                     audio.play();
                     break;
                 case 'a':
